@@ -1,0 +1,22 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+path = '/Users/xxx/DESKTOP/'. # add your path
+
+xls_path= path + 'vehicles.xlsx'
+df_1= pd.read_excel (xls_path)    #
+df_1=df_1.fillna('')
+df_model=df_1['Model']
+df_vol=df_1['Volume']
+df_weight=df_1['Weight']
+df_gas=df_1['CO2']
+print(df_model)
+print(df_1.size)
+print(df_1.shape)
+print(len(df_1))
+
+index_vol = [ i for i in range(len(df_1)) if df_vol[i] == 1000]
+print(index_vol)
+for i in range(len(index_vol)):
+    print(df_model[index_vol[i]])
