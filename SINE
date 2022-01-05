@@ -1,0 +1,25 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+path = '/Users/krish/DESKTOP/'
+
+xls_path= path+'sine2.xlsx'
+df_1= pd.read_excel (xls_path)    # ENTER THE FIRST SHEET -RLS DATA   CABchecklist(CHGdata)
+df_1=df_1.fillna('')
+
+df_x=df_1['x'].to_list()
+df_sine=df_1['F(x)= SINE'].to_list()
+df_y=df_1['y= mx'].to_list()
+print(df_x.index(0.5))
+s=max(df_sine)
+print('MAX',s)
+print(df_sine.index(s))
+
+index_pos_list = [ i for i in range(len(df_sine)) if df_sine[i] == 0]
+
+plt.plot(df_x, df_sine,'r')
+plt.plot(df_sine, df_sine,'g')
+
+plt.plot(df_x, df_y)
+plt.show()
